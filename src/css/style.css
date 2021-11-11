@@ -1,0 +1,44 @@
+*{
+    box-sizing: border-box;
+    font-family: 'ABeeZee', sans-serif;  
+}
+
+body{
+    margin: 0;
+}
+
+.section-login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.section-img{
+    display: grid;
+    grid-template-columns: 1fr;
+    align-items: center;
+    justify-items: center;
+}
+
+.section-form{
+    background-color: #c4c4c4ad;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+}
+
+.login-logo{
+   
+}
+
+.kimbap{
+    width: 40%;
+    height: 40%;
+}
+
+footer{
+    background-color: #c4c4c4cc;
+    text-align: center;
+    grid-column: 1/3;
+       
+}
+
