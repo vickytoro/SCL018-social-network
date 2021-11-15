@@ -1,0 +1,89 @@
+*{
+    box-sizing: border-box;
+    font-family: 'ABeeZee', sans-serif;  
+}
+
+body{
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+    overflow-x: hidden;    
+}
+
+.section-login{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 95% 5%;
+}
+
+.section-img{
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 40% 30% 30%;
+    align-items: center;
+    justify-items: center;
+}
+
+.section-form{
+    background-color: #c4c4c4ad;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    
+}
+
+.login-logo{
+    display: flex;
+    height: auto;
+    width: 29.2vw;
+    margin-top: 50px;
+    align-items: center;
+    justify-content: center;
+}
+
+.login-text{
+    text-align: justify;
+    font-size: 18px;
+    line-height: 1.2;
+    padding-right: 40px;
+    padding-left: 40px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+.welcome{
+    text-align: center;
+}
+
+.kimbap{
+    width: 200px;
+    height: 150px;
+    display: flex;
+    align-items: start;
+    margin-bottom: 25px;
+}
+
+footer{
+    background-color: #c4c4c4cc;
+    text-align: center;
+    grid-column: 1/3;
+}
+
+.authors{
+    font-size: 13px;
+} 
+
+.login-inputMail{
+    background-color: white;
+}
+
+.email-user, .password-user {
+    background-color: #ffffff;
+    
+
+}
+
+.login-formContainer{
+    margin: 20px;
+}
+
