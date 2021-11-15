@@ -1,8 +1,26 @@
 // Este es el punto de entrada de tu aplicacion
 
-import {} from './lib/index.js';
-import { loginTemplate } from './templates/login.js';
+import {router} from './lib/router.js';
+router();
 
-loginTemplate();
-// myFunction();
-// const db = firebase.firestore();
+window.addEventListener("load", () => {
+    router(window.location.hash);
+})
+window.addEventListener("hashchange", () => {
+    router(window.location.hash);
+});
+
+
+//import { registerTemplate } from './templates/register.js';
+//registerTemplate();
+
+//import {loginTemplate} from './templates/login.js';
+//loginTemplate();
+//accessUser();
+//accessUser
+
+//import { changeRoute } from './templates/router.js';
+
+
+
+
