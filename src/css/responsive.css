@@ -1,0 +1,115 @@
+/*Responsive para celular*/
+
+@media only screen and (max-width: 360px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .section-login {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-img {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-logo {
+    display: flex;
+    width: 85%;
+    height: auto;
+    margin-left: 30px;
+    text-align: center;
+  }
+
+  .login-text {
+    font-size: 12px;
+    margin-top: -30px;
+  }
+
+  .section-form {
+    background-color: white;
+    margin-top: -10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .login-formContainer {
+    margin-top: 0px;
+  }
+
+  .login-inputMail,
+  .login-inputPassword {
+    margin-bottom: 10px;
+    background-color: white;
+    width: 85%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 25px;
+  }
+
+  .img-input {
+    width: 6%;
+    height: auto;
+  }
+
+  .email-user,
+  .password-user {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .terms,
+  .link-recover {
+    font-size: 10px;
+  }
+
+  .terms-singin {
+    font-size: 10px;
+  }
+
+  .button-login {
+    width: 20%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 11px;
+    margin-right: 50px;
+  }
+
+  .link-recover,
+  .link-newAccount {
+    font-size: 11px;
+  }
+
+  .lines {
+    width: 80%;
+  }
+
+  .login-width {
+    font-size: 12px;
+  }
+
+  .login-newAccount {
+    width: 100%;
+  }
+
+  .welcome-two {
+    display: none;
+  }
+
+  .kimbap {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
+}
