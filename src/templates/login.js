@@ -1,4 +1,4 @@
-import { singIn, loginWithGoogle } from '../lib/index.js';
+import { singIn, loginWithGoogle, loginWithFacebook} from '../lib/index.js';
 
 export const loginTemplate = () => {
   const containerLogin = document.createElement('main');
@@ -46,7 +46,7 @@ export const loginTemplate = () => {
           <button type="button" name="btn-google" class="button-google" id="googleButton">
             <img src="./imagenes/icons8gmail.png" />
           </button>
-          <button type="button" name="btn-facebook" class="button-facebook">
+          <button type="button" name="btn-facebook" class="button-facebook" id="facebookButton">
             <img src="./imagenes/icons8facebook.png" />
           </button>
         </section>
@@ -71,10 +71,15 @@ export const loginTemplate = () => {
 
   containerLogin.querySelector('#googleButton').addEventListener('click', () => {
     loginWithGoogle();
+    window.location.hash = '#/wallpage';
   });
 
   return containerLogin;
 };
+
+
+
+
 
 // Login de usuario registrado.
 // export const accessUser = ()=>{
