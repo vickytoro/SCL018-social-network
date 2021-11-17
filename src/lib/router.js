@@ -1,44 +1,17 @@
-import { loginTemplate } from "../templates/login.js";
-import { registerTemplate } from "../templates/register.js";
+import { loginTemplate } from '../templates/login.js';
+import { registerTemplate } from '../templates/register.js';
+import { wallTemplate } from '../templates/wallpage.js';
 
-export const router = (hashtag) => {
-  const rootBox = document.getElementById("root");
-  rootBox.innerHTML = "";
-    if (hashtag === "#/" || hashtag === "/" || hashtag === "#" || hashtag === ""){
-        
+export const router = (hash) => {
+  const rootBox = document.getElementById('root');
+  rootBox.innerHTML = '';
+  if (hash === '#/' || hash === '/' || hash === '#' || hash === '') {
     rootBox.appendChild(loginTemplate());
-  } else if (hashtag === "#/login") {
+  } else if (hash === '#/login') {
     rootBox.appendChild(loginTemplate());
-  } else if (hashtag === "#/register") {
+  } else if (hash === '#/register') {
     rootBox.appendChild(registerTemplate());
-  } //else if (hash === "#/wallPage") {
-  //rootBox.appendChild(wallPage());
-//}
+  } else if (hash === '#/wallpage') {
+    rootBox.appendChild(wallTemplate());
+  }
 };
-
-
-
-
-/*export const changeRoute = (hash) => {
-    if (hash === '#/'){
-        return showTemplate (hash)
-    } else if (hash === '#/registry'){
-        return showTemplate (hash)
-    } else {
-        return showTemplate (hash)
-    }
-}
-
-const showTemplate = (hash) => {
-    const containerRoot = document.getElementById('root');
-    containerRoot.innerHTML= resgisterTemplate();   //que se pinte resgistrarse o login??
-
-    switch (hash) {
-        case '#/':
-            containerRoot.appendChild(()); //aqui va el nodo??
-            break;
-        case '#/register':
-            containerRoot.appendChild(());
-            break;
-        default:  
-            containerRoot.innerHTML= */
