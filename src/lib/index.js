@@ -9,10 +9,11 @@ import {
   signInWithPopup,
   signOut,
   FacebookAuthProvider,
+  sendEmailVerification,
+  onAuthStateChanged 
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 
-// onAuthStateChanged,
 
 // import {} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
 // TODO: Add SDKs for Firebase products that you want to use
@@ -41,6 +42,7 @@ export const signUp = (email, password) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
     // Signed in
+      emailCheck();
       const user = userCredential.user;
       console.log(user);
       alert('Usuario Registrado');
@@ -51,9 +53,21 @@ export const signUp = (email, password) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
-      alert('Ingrese una clave con un mínimo 6 caracteres');
-    // ..
+      alert('Correo ya registrado');
+      // ..
     });
+
+    //Envía un mensaje de verificación a un usuario
+    const emailCheck = () => {
+      sendEmailVerification(auth.currentUser)
+      .then(() => {
+    // Email verification sent!
+    console.log('Correo enviado');
+    alert('Hemos enviado un correo de verificación para validar tu cuenta');
+    }).catch((error) => {
+      console.log(error);
+    })
+};
 };
 
 // Iniciar sesión con correo registrado
@@ -105,6 +119,7 @@ export const loginWithGoogle = () => {
     });
 };
 
+//Inicio de sesión con Facebook
 export const loginWithFacebook = () => {
   signInWithPopup(auth, providerF)
     .then((result) => {
@@ -149,34 +164,34 @@ export const logOut = () => {
     // An error happened.
   });
 };
+
 // Función observador que nos sirve para autenticar al usuario y que pueda realizar post, etc.
-/* export const onAuth = () => {
+export const onAuth = () => {
   onAuthStateChanged(auth, (user) => {
     if (user) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      console.log('auid');
+        //fs.collection('posts')
+        //get()
+        //then()
+      console.log('auth:sing in');
       window.location.hash = '#/wallpage';
     } else {
       // User is signed out
-      console.log('Usuario no registrado');
+      console.log('auth: sign out');
       window.location.hash = '#/login';
     }
   });
-}; */
+}; 
 
-// Login con Facebook.
-/* const facebookButton = document.querySelector('#facebookButton');
-facebookButton.addEventListener('click', e => {
-  e.preventDefault();
-  const provider = new firebase.auth.FacebookAuthProvider();
-  auth.signInWithPopup(provider)
-  .then((result) => {
-    console.log(result);
-    console.log('facebook sign in');
-})
-.catch((error) => {
-  console.log (error);
-})}
-) */
+//Events
+//auth.onAuthStateChanged(user => {
+  //if (user){
+    //fs.collection('posts')
+      //.get()
+      //.then((snapshot) => {
+       // console.log (snapshot.docs)
+    //  })
+ // }
+//})

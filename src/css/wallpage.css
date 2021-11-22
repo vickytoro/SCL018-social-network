@@ -1,0 +1,47 @@
+
+.wall-section{
+   width: 100vw;
+   height: 100vh;
+   display: grid;
+   grid-template-rows: 30% 70%;
+   grid-template-columns: 100%;
+}
+
+.header-wall{
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    border-bottom: 2px solid rgba(0, 0, 0, 0.425);   
+    
+}
+
+.inside-header{
+    display: flex;
+    flex-direction: row;
+    align-items: center; 
+}
+
+.user-wall{
+    display: flex;
+     height: 40%;
+     width: 90%;
+     align-items: center;    
+}
+
+.img-user{
+   margin: 5px;
+   width: 75px;
+   height: auto;
+}
+
+.main-wall{
+    display: grid;
+    grid-template-columns: 30% 70%;
+}
+
+.post-modal{
+    display:none;
+}
+
+
+

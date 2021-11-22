@@ -5,57 +5,60 @@ export const wallTemplate = () => {
   containerWall.className = 'wall-section';
   containerWall.id = 'wall-section';
   const wallPost = `
-  <header>
-    <figure class="header-wall">
-      <img src="./imagenes/Degustando.png" />
-      <img src="./imagenes/icons8usuarix.png" />
-      <p>corre@example.com</p>      
+  <header class="header-wall">
+    <figure class="inside-header">
+      <img class="wall-logo" src="./imagenes/Degustando.png" />
+      <div class="user-wall">
+        <img class="img-user" src="./imagenes/icons8usuarix.png" />
+        <p>email@example.com </p>  
+      </div>
     </figure>
-    <button id="logout"> Cerrar sesión </button>
   </header>
-  <main>
+  <main class="main-wall">
     <aside>
       <div>
-         <img src= "./imagenes/icons8casa.png" />
-         <a href="#/wallpage">Home</a>
+        <button id="logout"> Cerrar sesión </button>  
       </div>
       <div>
-         <img src= "./imagenes/icons8addnew.png" />
-         <button>Agregar Reseña</button>
+        <img src= "./imagenes/icons8addnew.png" />
+        <button id="newPost"> Agregar Reseña </button>
       </div>
       <div>
-         <img src= "./imagenes/icons8búsqueda.png" />
-         <input type="text" placeholder="Buscar" />
+        <img src= "./imagenes/icons8búsqueda.png" />
+        <input type="text" placeholder="Buscar" />
       </div>
       <div>
-         <p>Recuerda dar Me Gusta</p>
-         <img src="./imagenes/like.png" />
+        <p>Recuerda dar Me Gusta</p>
+        <img src="./imagenes/like.png" />
       </div>
       <figure>
         <img src="./imagenes/comidacoreana.jpg" />
       </figure>
     </aside>
     <section>
-       <div>
-         <input type="text" placeholder="Escribe tu reseña..." />
-         <div>
-           <button> <img src="./imagenes/like.png" /></button>
-           <button> <img src="./imagenes/icons8imagen.png" /></button>
-           <button> <img src="./imagenes/icons8lapiz.png" /></button>
-         </div> 
-       </div>       
+      <div id="postModal" class="post-modal">
+          <input type="text" id="titlePost" placeholder="Escribe un Título, ejemplo: Receta, Reseña de Restaurante, etc" />
+        <input type="text" id="writePost" placeholder="Escribe tu reseña..." />
+        <div>
+          <button> <img src="./imagenes/like.png" /></button>
+          <button> <img src="./imagenes/icons8imagen.png" /></button>
+          <button> <img src="./imagenes/icons8lapiz.png" /></button>
+          <button> <img src="./imagenes/icons8eliminar.png" /></button>
+        </div> 
+        <button>Publicar</button>
+      </div>       
     </section>
-    <footer>
-      <p class="authors"> @2021 Degustando Corea. Creado por Victoria Toro y Macarena Rivera.</p>
-    </foote
   </main>
-  
-  `;
+    `;
   containerWall.innerHTML = wallPost;
+
+  containerWall.querySelector('#newPost').addEventListener('click', () => {
+    const postBox = containerWall.querySelector('#postModal');
+    postBox.style.display = 'block';
+  });
 
   containerWall.querySelector('#logout').addEventListener('click', () => {
     logOut();
   });
-
   return containerWall;
 };
