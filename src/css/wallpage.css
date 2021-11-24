@@ -3,7 +3,7 @@
    width: 100vw;
    height: 100vh;
    display: grid;
-   grid-template-rows: 30% 70%;
+   grid-template-rows: 23% 77%;
    grid-template-columns: 100%;
 }
 
@@ -11,14 +11,26 @@
     display: flex;
     flex-wrap: wrap;
     width: 100%;
-    border-bottom: 2px solid rgba(0, 0, 0, 0.425);   
-    
+    border-bottom: 2px solid rgba(0, 0, 0, 0.425);  
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    align-items: center;
+          
 }
 
 .inside-header{
     display: flex;
     flex-direction: row;
-    align-items: center; 
+    align-items: center;
+   margin-top: 5px;
+}
+
+.wall-logo{
+    display: flex;
+    margin-left: 20%;
+    margin-right: 60%;
+    width: 50%;
+    height: auto;
+     
 }
 
 .user-wall{
@@ -26,6 +38,7 @@
      height: 40%;
      width: 90%;
      align-items: center;    
+       
 }
 
 .img-user{
@@ -36,12 +49,200 @@
 
 .main-wall{
     display: grid;
-    grid-template-columns: 30% 70%;
+    grid-template-columns: 25% 75%;
+}
+
+.aside-box{
+    border-right: 2px solid rgba(0, 0, 0, 0.425);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.plus{
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-top: 20px;
+    padding: 5px;
+}
+
+.plus:hover,
+.button-logout:hover{
+    background-color: rgba(128, 128, 128, 0.267);
+}
+
+.button-plus,
+.btn-logout{
+    border: none;
+    background-color: rgba(255, 255, 255, 0);
+    font-size: 15px;
+}
+
+.img-plus{
+    width: 23%;
+    height: auto;
+}
+
+.search{
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-top: 20px;
+    justify-content: center;
+    width: 59%;
+}
+
+.img-search{
+    width: 20%;
+    height: auto;
+    margin: 5px;
+}
+
+.input-search{
+    border: none;
+    font-size: 15px;
+    width: 68%;
+}
+
+.button-logout{
+    width: 55%;
+    padding: 7px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-top: 20px;
+   
+}
+
+.img-logout{
+    width: 20%;
+    height: auto;
+}
+
+.remember{
+    margin-top: 55px;
+}
+
+
+.like-aside{
+    width: 18%;
+    height: auto;
+}
+
+.korean-food{
+    width: 70%;
+    height: auto;
 }
 
 .post-modal{
-    display:none;
+    display: flex;
+    flex-direction: column;
+    margin-top: 5%;
+    width: 65%;
+    height: 50%;
+    margin-left: 15%;    
 }
+
+.post-buttons{
+    border: 2px solid #8075cac5;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    
+}
+
+.tittle-post{
+    padding: 10px;
+    font-size: 13px;
+    border: none;
+    border-bottom: 2px solid #8075cac5;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+}
+
+.review-post{
+    padding: 10px;
+    font-size: 13px;
+    border: none;
+    height: 32vh;
+    text-align: start;
+}
+
+.buttons{
+    border-top: 2px solid #8075cac5;
+    border-bottom-left-radius: 10px;
+    border-bottom-right-radius: 10px;
+    align-items: center;
+}
+
+.btn-like{
+    width: 8%;
+    height: auto;
+    margin-right: 70%;
+    margin-top: 2px;
+    
+}
+
+.like-post{
+    width: 65%;
+    height: auto;
+}
+
+.btn-image{
+    width: 6%;
+    height: auto;
+    margin-right: 0%;
+}
+
+.image-post{
+    width: 79%;
+    height: auto;
+}
+
+.btn-pencil{
+    width: 6%;
+    height: auto;
+    margin-right: 0%;
+      
+}
+
+.pencil-post{
+    width: 75%;
+    height: auto;
+}
+
+.btn-trash{
+    width: 7%;
+    height: auto;
+    margin-right: 0%;
+    
+}
+
+.trash-post{
+    width: 62%;
+    height: auto;
+}
+
+.btn-like,
+.btn-image,
+.btn-pencil,
+.btn-trash{
+    border: none;
+    background-color: white;
+    border-radius: 10px;
+    padding: 3px;
+}
+
+.btn-like:hover,
+.btn-image:hover,
+.btn-pencil:hover,
+.btn-trash:hover{
+    background-color: rgba(128, 128, 128, 0.274);
+}
+
 
 
 

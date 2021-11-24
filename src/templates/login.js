@@ -49,7 +49,7 @@ export const loginTemplate = () => {
         <section class="login-newAccount">
           <hr class="lines" />
           <p class="terms">¿No tienes una cuenta?</p>
-          <a class="link-newAccount" href="#/register" id= "checkUser">Regístrate</a>
+          <a class="link-newAccount" id="linkNewAccount" href="#/register" id= "checkUser">Regístrate</a>
           <hr class="lines" />
         </section>
       </section>
@@ -67,7 +67,6 @@ export const loginTemplate = () => {
 
   containerLogin.querySelector('#googleButton').addEventListener('click', () => {
     loginWithGoogle();
-    window.location.hash = '#/wallpage';
   });
 
   containerLogin.querySelector('#facebookButton').addEventListener('click', () => {
