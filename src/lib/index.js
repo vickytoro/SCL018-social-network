@@ -1,6 +1,7 @@
 // Import the functions you need from the SDKs you need
 // eslint-disable-next-line import/no-unresolved
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
+
 import {
   getAuth,
   createUserWithEmailAndPassword,
@@ -10,12 +11,20 @@ import {
   signOut,
   FacebookAuthProvider,
   sendEmailVerification,
-  onAuthStateChanged 
+  onAuthStateChanged,
 // eslint-disable-next-line import/no-unresolved
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 
+import {
+  collection,
+  addDoc,
+  getFirestore,
+  onSnapshot,
+  query,
+} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
-// import {} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+import { printPosts } from '../templates/showpost.js';
+
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 
@@ -34,6 +43,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const auth = getAuth(app);
+const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
 const providerF = new FacebookAuthProvider(app);
 
@@ -57,17 +67,17 @@ export const signUp = (email, password) => {
       // ..
     });
 
-    //Envía un mensaje de verificación a un usuario
-    const emailCheck = () => {
-      sendEmailVerification(auth.currentUser)
+  // Envía un mensaje de verificación a un usuario
+  const emailCheck = () => {
+    sendEmailVerification(auth.currentUser)
       .then(() => {
-    // Email verification sent!
-    console.log('Correo enviado');
-    alert('Hemos enviado un correo de verificación para validar tu cuenta');
-    }).catch((error) => {
-      console.log(error);
-    })
-};
+        // Email verification sent!
+        console.log('Correo enviado');
+        alert('Hemos enviado un correo de verificación para validar tu cuenta');
+      }).catch((error) => {
+        console.log(error);
+      });
+  };
 };
 
 // Iniciar sesión con correo registrado
@@ -119,7 +129,7 @@ export const loginWithGoogle = () => {
     });
 };
 
-//Inicio de sesión con Facebook
+// Inicio de sesión con Facebook
 export const loginWithFacebook = () => {
   signInWithPopup(auth, providerF)
     .then((result) => {
@@ -172,26 +182,62 @@ export const onAuth = () => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-        //fs.collection('posts')
-        //get()
-        //then()
-      console.log('auth:sing in');
+      // fs.collection('posts')
+      // get()
+      // then()
       window.location.hash = '#/wallpage';
+      console.log('auth:sing in');
     } else {
+      if(!window.location.hash.includes('register')){
+       window.location.hash = '#/login'
+      }
+      
       // User is signed out
       console.log('auth: sign out');
-      window.location.hash = '#/login';
     }
   });
-}; 
+};
 
-//Events
-//auth.onAuthStateChanged(user => {
-  //if (user){
-    //fs.collection('posts')
-      //.get()
-      //.then((snapshot) => {
-       // console.log (snapshot.docs)
-    //  })
- // }
-//})
+// Firestore
+// Agregar datos de post
+export const addPost = async (inputTitle, inputReview) => {
+  //console.log(inputTitle);
+  //console.log(inputReview);
+  // Add a new document with a generated id.
+  const docRef = await addDoc(collection(db, 'posts'), {
+    title: inputTitle,
+    description: inputReview,
+  });
+  console.log('Document written with ID: ', docRef.id);
+
+  return docRef;
+};
+
+// Leer datos de post
+export const readPost = () => {
+  const q = query(collection(db, 'posts'));
+  onSnapshot(q, (querySnapshot) => {
+    const boxPost = [];
+    querySnapshot.forEach((doc) => {
+      boxPost.push(doc.data());
+      //console.log(boxPost);
+    });
+     printPosts(boxPost);
+     console.log('title', 'description', boxPost.join(', '));
+     return boxPost;
+    });
+ 
+};
+
+readPost();
+
+// Events
+// auth.onAuthStateChanged(user => {
+// if (user){
+// fs.collection('posts')
+// .get()
+// .then((snapshot) => {
+// console.log (snapshot.docs)
+//  })
+// }
+// })

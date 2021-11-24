@@ -2,6 +2,7 @@ import { loginTemplate } from '../templates/login.js';
 import { registerTemplate } from '../templates/register.js';
 import { wallTemplate } from '../templates/wallpage.js';
 
+
 export const router = (hash) => {
   const rootBox = document.getElementById('root');
   rootBox.innerHTML = '';
@@ -13,5 +14,7 @@ export const router = (hash) => {
     rootBox.appendChild(registerTemplate());
   } else if (hash === '#/wallpage') {
     rootBox.appendChild(wallTemplate());
-  }
-};
+  } else if (hash === '#/showpost') {
+    rootBox.appendChild(wallTemplate());
+}
+}
