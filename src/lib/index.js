@@ -21,6 +21,9 @@ import {
   getFirestore,
   onSnapshot,
   query,
+  orderBy,
+  doc, 
+  deleteDoc
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
 import { printPosts } from '../templates/showpost.js';
@@ -42,10 +45,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-const auth = getAuth(app);
+export const auth = getAuth(app);
 const db = getFirestore(app);
 const provider = new GoogleAuthProvider(app);
 const providerF = new FacebookAuthProvider(app);
+export const user = auth.currentUser;
 
 // Funcion para registrarte
 export const signUp = (email, password) => {
@@ -188,10 +192,9 @@ export const onAuth = () => {
       window.location.hash = '#/wallpage';
       console.log('auth:sing in');
     } else {
-      if(!window.location.hash.includes('register')){
-       window.location.hash = '#/login'
+      if (!window.location.hash.includes('register')){ 
+        window.location.hash = '#/login'
       }
-      
       // User is signed out
       console.log('auth: sign out');
     }
@@ -201,12 +204,14 @@ export const onAuth = () => {
 // Firestore
 // Agregar datos de post
 export const addPost = async (inputTitle, inputReview) => {
-  //console.log(inputTitle);
-  //console.log(inputReview);
-  // Add a new document with a generated id.
+// Add a new document with a generated id.
   const docRef = await addDoc(collection(db, 'posts'), {
+    userId: auth.currentUser.uid,
+    name: auth.currentUser.displayName,
+    email: auth.currentUser.email,
     title: inputTitle,
     description: inputReview,
+    datepost: Date(Date.now()),
   });
   console.log('Document written with ID: ', docRef.id);
 
@@ -215,29 +220,25 @@ export const addPost = async (inputTitle, inputReview) => {
 
 // Leer datos de post
 export const readPost = () => {
-  const q = query(collection(db, 'posts'));
+  const q = query(collection(db, 'posts'), orderBy('datepost', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const boxPost = [];
     querySnapshot.forEach((doc) => {
-      boxPost.push(doc.data());
-      //console.log(boxPost);
+      boxPost.push({ id: doc.id, data:doc.data()});
+      // console.log(boxPost);
     });
-     printPosts(boxPost);
-     console.log('title', 'description', boxPost.join(', '));
-     return boxPost;
-    });
- 
+    printPosts(boxPost);
+    console.log('title', 'description', boxPost.join(', '));
+    return boxPost;
+  });
 };
 
 readPost();
 
-// Events
-// auth.onAuthStateChanged(user => {
-// if (user){
-// fs.collection('posts')
-// .get()
-// .then((snapshot) => {
-// console.log (snapshot.docs)
-//  })
-// }
-// })
+//Borrar datos
+export const deletePost = async (id) => {
+  await deleteDoc(doc(db, 'posts', id));
+console.log(await deleteDoc);
+}
+
+

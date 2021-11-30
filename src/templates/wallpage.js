@@ -36,24 +36,22 @@ export const wallTemplate = () => {
         <img class="korean-food" src="./imagenes/comidacoreana.jpg" />
       </figure>
     </aside>
-    <section>
-      <div id="postModal" class="post-modal">
-       <div class="post-buttons">
-        <input type="text" id="titlePost" class="tittle-post" placeholder="Escribe un Título, por ejemplo: Receta, Reseña de Restaurante, etc." />
-        <input type="text" id="writePost" class="review-post" placeholder="Escribe tu reseña o receta. En el caso de reseña por favor indicanos la ubicación y precios refereciales." />
-        <div class="buttons">
-          <button class="btn-like"> <img class="like-post" src="./imagenes/like.png" /></button>
-          <button class="btn-image"> <img class="image-post" src="./imagenes/icons8imagen.png" /></button>
-          <button class="btn-pencil" > <img class="pencil-post" src="./imagenes/icons8lapiz.png" /></button>
-          <button class="btn-trash" > <img class="trash-post" src="./imagenes/icons8eliminar.png" /></button>
-        </div> 
-       </div>
-       <button id="toPost">Publicar</button>
-      </div>       
-    </section>
-    <section id="containerPosts">
-     
-
+    <section class="section-container-post">
+      <section>
+        <div id="postModal" class="post-modal">
+          <div class="post-buttons">
+            <input type="text" id="titlePost" class="tittle-post" placeholder="Escribe un Título, por ejemplo: Receta, Reseña de Restaurante, etc." />
+            <input type="text" id="writePost" class="review-post" placeholder="Escribe tu reseña o receta. En el caso de reseña por favor indicanos la ubicación y precios refereciales." />
+          <div class="buttons">
+            <button class="btn-image"> <img class="image-post" src="./imagenes/icons8imagen.png" /></button>
+            
+          </div> 
+          </div>
+          <button id="toPost">Publicar</button>
+        </div>       
+        </section>
+        <section id="containerPosts">
+      </section>
     </section>
   </main>
     `;
