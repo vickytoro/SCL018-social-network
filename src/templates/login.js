@@ -67,6 +67,7 @@ export const loginTemplate = () => {
 
   containerLogin.querySelector('#googleButton').addEventListener('click', () => {
     loginWithGoogle();
+    window.location.hash = '#/wallpage';
   });
 
   containerLogin.querySelector('#facebookButton').addEventListener('click', () => {
