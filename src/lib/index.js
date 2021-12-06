@@ -1,5 +1,5 @@
-// Import the functions you need from the SDKs you need
-// eslint-disable-next-line import/no-unresolved
+//Funciones de Firebase
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
 
 import {
@@ -12,7 +12,7 @@ import {
   FacebookAuthProvider,
   sendEmailVerification,
   onAuthStateChanged,
-// eslint-disable-next-line import/no-unresolved
+  updateProfile
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 
 import {
@@ -23,7 +23,11 @@ import {
   query,
   orderBy,
   doc, 
-  deleteDoc
+  deleteDoc,
+  updateDoc, 
+  getDoc,
+  arrayRemove, 
+  arrayUnion
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
 import { printPosts } from '../templates/showpost.js';
@@ -52,13 +56,15 @@ const providerF = new FacebookAuthProvider(app);
 export const user = auth.currentUser;
 
 // Funcion para registrarte
-export const signUp = (email, password) => {
+export const signUp = (email, password, name) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-    // Signed in
       emailCheck();
       const user = userCredential.user;
       console.log(user);
+      updateProfile(auth.currentUser, {
+        displayName: name,
+      })
       alert('Usuario Registrado');
       window.location.hash = '#/login';
     })
@@ -162,8 +168,6 @@ export const loginWithFacebook = () => {
       // The AuthCredential type that was used.
       const credential = FacebookAuthProvider.credentialFromError(error);
       console.log(credential);
-
-    // ...
     });
 };
 
@@ -186,9 +190,6 @@ export const onAuth = () => {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      // fs.collection('posts')
-      // get()
-      // then()
       window.location.hash = '#/wallpage';
       console.log('auth:sing in');
     } else {
@@ -201,7 +202,8 @@ export const onAuth = () => {
   });
 };
 
-// Firestore
+// Funciones de Firestore
+
 // Agregar datos de post
 export const addPost = async (inputTitle, inputReview) => {
 // Add a new document with a generated id.
@@ -211,7 +213,10 @@ export const addPost = async (inputTitle, inputReview) => {
     email: auth.currentUser.email,
     title: inputTitle,
     description: inputReview,
-    datepost: Date(Date.now()),
+    datepost: Date(Date.now()),   
+    likes: [],
+    likesCounter: 0,
+     
   });
   console.log('Document written with ID: ', docRef.id);
 
@@ -224,8 +229,7 @@ export const readPost = () => {
   onSnapshot(q, (querySnapshot) => {
     const boxPost = [];
     querySnapshot.forEach((doc) => {
-      boxPost.push({ id: doc.id, data:doc.data()});
-      // console.log(boxPost);
+      boxPost.push({ id: doc.id, data:doc.data(), title:doc.data.title, description:doc.data.description});
     });
     printPosts(boxPost);
     console.log('title', 'description', boxPost.join(', '));
@@ -239,6 +243,35 @@ readPost();
 export const deletePost = async (id) => {
   await deleteDoc(doc(db, 'posts', id));
 console.log(await deleteDoc);
+}
+
+//Editar datos
+export const editPost = async (id, inputTitle, inputReview) => {
+  const refreshPost = doc(db, 'posts', id);
+  await updateDoc(refreshPost, {
+    title: inputTitle,
+    description: inputReview,     
+  });
+}
+
+//Dar likes y contador de likes
+export const likePost = async (id, userLike) => {
+  const likeRef = doc(db, 'posts', id);
+  const docSnap = await getDoc(likeRef);
+  const postData = docSnap.data();
+  const likesCount = postData.likesCounter;
+
+if ((postData.likes).includes(userLike)) {
+  await updateDoc(likeRef, {
+    likes: arrayRemove(userLike),
+    likesCounter: likesCount -1,
+  });  
+} else {
+  await updateDoc(likeRef, {
+    likes: arrayUnion(userLike),
+    likesCounter: likesCount +1,
+  });
+}
 }
 
 

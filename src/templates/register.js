@@ -1,16 +1,17 @@
 import { signUp } from '../lib/index.js';
 
+//Función para desplegar #register
 export const registerTemplate = () => {
   const formRegister = document.createElement('section');
   formRegister.className = 'register-form';
   formRegister.id = 'registerForm';
   const formTemplate = `
             <header class="logo-register">
-            <img src="./imagenes/Degustando.png">
+            <img class="img-logo-register" src="./imagenes/Degustando.png">
         </header>
         <div class="box-form">
         <header>
-            <h1>Regístrate</h1>
+            <h1 class="title-register">Regístrate</h1>
         </header>
         <form class="container-form">
             <input type="text" id= "signUpName" class="email-box" placeholder="Ingresa tu nombre" >
@@ -24,12 +25,13 @@ export const registerTemplate = () => {
         </form>
         </div> `;
   formRegister.innerHTML = formTemplate;
-  // Registro usuario nuevo.
 
+  // Evento Sing Up
   formRegister.querySelector('#registerButton').addEventListener('click', () => {
     const email = document.getElementById('signUpEmail').value;
     const password = document.getElementById('signUpPass').value;
-    signUp(email, password);
+    const name = document.getElementById('signUpName').value
+    signUp(email, password, name);
   });
 
   return formRegister;
