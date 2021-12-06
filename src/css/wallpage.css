@@ -1,11 +1,15 @@
+/*Página de Wallpage*/
+
+/*Contenedor para aplicar Grid*/
 .wall-section{
     width: 100vw;
     height: 100vh;
     display: grid;
-    grid-template-rows: 23% 77%;
+    grid-template-rows: 22% 78%;
     grid-template-columns: 100%;
  }
- 
+
+ /*Encabezado o Header*/ 
  .header-wall{
      display: flex;
      flex-wrap: wrap;
@@ -13,14 +17,14 @@
      border-bottom: 2px solid rgba(0, 0, 0, 0.425);  
      box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
      align-items: center;
-           
+     position: sticky;         
  }
  
  .inside-header{
      display: flex;
      flex-direction: row;
      align-items: center;
-    margin-top: 5px;
+     margin-top: 5px;
  }
  
  .wall-logo{
@@ -28,29 +32,29 @@
      margin-left: 20%;
      margin-right: 60%;
      width: 50%;
-     height: auto;
-      
+     height: auto;    
  }
  
  .user-wall{
      display: flex;
       height: 40%;
       width: 90%;
-      align-items: center;    
-        
+      align-items: center;           
  }
  
  .img-user{
     margin: 5px;
-    width: 75px;
+    width: 5.49vw;
     height: auto;
  }
  
+/*Contenedor grid para aside y section de post*/
  .main-wall{
      display: grid;
      grid-template-columns: 25% 75%;
  }
  
+/*Contenedor de Aside (cerrar sesion, buscar y agregar reseña*/
  .aside-box{
      border-right: 2px solid rgba(0, 0, 0, 0.425);
      display: flex;
@@ -66,63 +70,59 @@
      border-radius: 5px;
      margin-top: 20px;
      padding: 5px;
+     width: 60%;
  }
+
+ .home{
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-top: 20px;
+    width: 60%;
+ }
+
+ .button-logout{
+    width: 60%;
+    padding: 5px;
+    display: flex;
+    flex-direction: row;
+    border-radius: 5px;
+    margin-top: 20px;  
+}
  
  .plus:hover,
- .button-logout:hover{
+ .button-logout:hover,
+ .home:hover{
      background-color: rgba(128, 128, 128, 0.267);
  }
  
  .button-plus,
- .btn-logout{
+ .btn-logout,
+ .btn-home{
      border: none;
      background-color: rgba(255, 255, 255, 0);
      font-size: 15px;
  }
- 
- .img-plus{
-     width: 23%;
-     height: auto;
- }
- 
- .search{
-     display: flex;
-     flex-direction: row;
-     border-radius: 5px;
-     margin-top: 20px;
-     justify-content: center;
-     width: 59%;
- }
- 
- .img-search{
-     width: 20%;
+
+ .img-home{
+     width: 25%;
      height: auto;
      margin: 5px;
  }
- 
- .input-search{
-     border: none;
-     font-size: 15px;
-     width: 68%;
- }
- 
- .button-logout{
-     width: 55%;
-     padding: 7px;
-     display: flex;
-     flex-direction: row;
-     border-radius: 5px;
-     margin-top: 20px;
-    
+
+ .img-plus{
+     width: 25%;
+     height: auto;
  }
  
  .img-logout{
      width: 20%;
-     height: auto;
+     height: auto
  }
  
+ /*adicional en aside*/
  .remember{
-     margin-top: 55px;
+     margin-top: 30px;
  }
  
  
@@ -135,39 +135,44 @@
      width: 70%;
      height: auto;
  }
- 
+
+ /*Modal para publicar y posts (Página de showpost)*/
  .post-modal{
      display: flex;
      flex-direction: column;
      margin-top: 5%;
      width: 65%;
      height: 50%;
-     margin-left: 15%;    
+     margin-left: 15%; 
+     position: relative;   
  }
  
  .post-buttons{
      border: 2px solid #8075cac5;
      display: flex;
      flex-direction: column;
-     border-radius: 10px;
-     
+     border-radius: 10px;    
  }
  
- .tittle-post{
-     padding: 10px;
+ .tittle-post, 
+ .tittle-post2{
+     padding: 7px;
      font-size: 13px;
      border: none;
      border-bottom: 2px solid #8075cac5;
      border-top-left-radius: 10px;
      border-top-right-radius: 10px;
+     resize: none;
+     margin-top: 5px;    
  }
  
- .review-post{
-     padding: 10px;
+ .review-post,
+ .review-post2{
+     padding: 5px;
      font-size: 13px;
      border: none;
      height: 32vh;
-     text-align: start;
+     resize: none;
  }
  
  .buttons{
@@ -183,7 +188,11 @@
      width: 8%;
      height: auto;
      margin-right: 70%;
+     margin-left: 1%;
      margin-top: 2px;
+     display: flex;
+     flex-direction: row;
+     align-items: center;
      
  }
  
@@ -206,8 +215,7 @@
  .btn-pencil{
      width: 25%;
      height: auto;
-     margin-right: 0%;
-       
+     margin-right: 0%;     
  }
  
  .pencil-post{
@@ -218,8 +226,7 @@
  .btn-trash{
      width: 30%;
      height: auto;
-     margin-right: 0%;
-     
+     margin-right: 0%;    
  }
  
  .trash-post{
@@ -229,31 +236,101 @@
  
  .btn-like,
  .btn-image,
+ .btn-image2,
  .btn-pencil,
  .btn-trash{
      border: none;
      background-color: white;
      border-radius: 10px;
      padding: 3px;
+     cursor: pointer;
+ }
+
+ .like-post:hover,
+ .image-post:hover,
+ .pencil-post:hover,
+ .trash-post:hover{
+    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
  }
  
- .btn-like:hover,
- .btn-image:hover,
- .btn-pencil:hover,
- .btn-trash:hover{
-     background-color: rgba(128, 128, 128, 0.274);
- }
-
-
- .user-post{
+  .user-post{
      display: flex;
      flex-direction: row;
      align-items: center;
  }
 
  .img-user2{
-    width: 35px;
-    height: 35px;
+    width: 2.56vw;
+    height: 5.6vh;
     margin-right: 5px;
 
  }
+
+ .btn-image2{
+    display: flex;
+    flex-direction: row;
+    margin-left: 5px ;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    }
+
+.image-post2{
+    width: 20%;
+    height: auto;
+    margin-right: 3px;
+}
+
+.btn-post{
+    background-color: #8175CA;
+    width: 7.32vw;
+    height: 5.6vh;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5px;
+    margin-top: 10px;
+    float: right;
+}
+
+.btn-post:hover{
+    background-color: #4a3d9c;
+}
+
+.btn-save{
+    display: none;
+    background-color: #8175CA;
+    margin-bottom: 7px;
+    margin-top: 4px;
+    cursor: pointer;
+    border-radius: 5px;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 27px;
+}
+
+.btn-save:hover{
+    background-color: #4a3d9c;
+}
+
+.close-modal{
+    display: flex;  
+    position: absolute;
+    align-self: flex-end;
+    font-size: 25px;
+    padding: 5px;
+    cursor: pointer;
+    text-align: center;
+}
+
+.close-modal:hover{
+    color: grey;
+}
+
+.section-container-post{
+    overflow-y: auto;
+}
+
+.aside-phone{
+    display: none;
+}
+
+
+

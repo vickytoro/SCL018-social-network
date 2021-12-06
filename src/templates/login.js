@@ -1,6 +1,6 @@
 import { singIn, loginWithGoogle, loginWithFacebook } from '../lib/index.js';
-// loginWithFacebook
 
+//Función para desplegar #login
 export const loginTemplate = () => {
   const containerLogin = document.createElement('main');
   containerLogin.className = 'section-login';
@@ -59,17 +59,20 @@ export const loginTemplate = () => {
 
   containerLogin.innerHTML = loginPage;
 
+  //Evento para Ingresar
   containerLogin.querySelector('#accessButton').addEventListener('click', () => {
     const emailRegister = document.querySelector('#emailUser').value;
     const passwordRegister = document.querySelector('#passwordUser').value;
     singIn(emailRegister, passwordRegister);
   });
 
+  //Evento para ingresar con Google
   containerLogin.querySelector('#googleButton').addEventListener('click', () => {
     loginWithGoogle();
     window.location.hash = '#/wallpage';
   });
 
+  //Evento para ingresar con Facebook
   containerLogin.querySelector('#facebookButton').addEventListener('click', () => {
     loginWithFacebook();
   });
