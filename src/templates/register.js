@@ -1,10 +1,10 @@
-import { signUp } from '../lib/index.js';
+import { signUp } from "../lib/index.js";
 
 //Función para desplegar #register
 export const registerTemplate = () => {
-  const formRegister = document.createElement('section');
-  formRegister.className = 'register-form';
-  formRegister.id = 'registerForm';
+  const formRegister = document.createElement("section");
+  formRegister.className = "register-form";
+  formRegister.id = "registerForm";
   const formTemplate = `
             <header class="logo-register">
             <img class="img-logo-register" src="./imagenes/Degustando.png">
@@ -27,12 +27,14 @@ export const registerTemplate = () => {
   formRegister.innerHTML = formTemplate;
 
   // Evento Sing Up
-  formRegister.querySelector('#registerButton').addEventListener('click', () => {
-    const email = document.getElementById('signUpEmail').value;
-    const password = document.getElementById('signUpPass').value;
-    const name = document.getElementById('signUpName').value
-    signUp(email, password, name);
-  });
+  formRegister
+    .querySelector("#registerButton")
+    .addEventListener("click", () => {
+      const email = document.getElementById("signUpEmail").value;
+      const password = document.getElementById("signUpPass").value;
+      const name = document.getElementById("signUpName").value;
+      signUp(email, password, name);
+    });
 
   return formRegister;
 };
