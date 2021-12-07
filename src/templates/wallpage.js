@@ -1,17 +1,19 @@
-import { logOut, addPost, auth} from '../lib/index.js';
+import { logOut, addPost, auth } from "../lib/index.js";
 
 //Función para desplegar #wallpage
 export const wallTemplate = () => {
-  const containerWall = document.createElement('section');
-  containerWall.className = 'wall-section';
-  containerWall.id = 'wall-section';
+  console.log(auth.currentUser);
+  const email = auth?.currentUser?.email;
+  const containerWall = document.createElement("section");
+  containerWall.className = "wall-section";
+  containerWall.id = "wall-section";
   const wallPost = `
   <header class="header-wall">
     <figure class="inside-header">
       <img class="wall-logo" src="./imagenes/Degustando.png" />
       <div class="user-wall">
         <img class="img-user" src="./imagenes/icons8usuarix.png" />
-        <p>email@example.com </p>  
+        <p>${email || "hola"} </p>  
       </div>
     </figure>
   </header>
@@ -59,38 +61,33 @@ export const wallTemplate = () => {
   containerWall.innerHTML = wallPost;
 
   // Evento para abrir y cerrar modal para escribir Posts
-  const postBox = containerWall.querySelector('#postModal');
-  postBox.style.display = 'none';
-  containerWall.querySelector('#newPost').addEventListener('click', () => {
-    postBox.style.display = 'block';
-    const closeModal = containerWall.querySelector('#closeModal');
-    closeModal.addEventListener('click', () => {
-      postBox.style.display = 'none';
-    })
+  const postBox = containerWall.querySelector("#postModal");
+  postBox.style.display = "none";
+  containerWall.querySelector("#newPost").addEventListener("click", () => {
+    postBox.style.display = "block";
+    const closeModal = containerWall.querySelector("#closeModal");
+    closeModal.addEventListener("click", () => {
+      postBox.style.display = "none";
+    });
   });
 
   // Evento para escribir post
-  const newTitle = containerWall.querySelector('#toPost');
-  newTitle.addEventListener('click', () => {
-    const inputTitle = document.getElementById('titlePost').value;
-    const inputReview = document.getElementById('writePost').value;
-    if(inputTitle && inputReview === ''){
-      alert('Complete los campos vacios')
-    } else {addPost(inputTitle, inputReview);}
-    document.getElementById('titlePost').value = '';
-    document.getElementById('writePost').value = '';
+  const newTitle = containerWall.querySelector("#toPost");
+  newTitle.addEventListener("click", () => {
+    const inputTitle = document.getElementById("titlePost").value;
+    const inputReview = document.getElementById("writePost").value;
+    if (inputTitle && inputReview === "") {
+      alert("Complete los campos vacios");
+    } else {
+      addPost(inputTitle, inputReview);
+    }
+    document.getElementById("titlePost").value = "";
+    document.getElementById("writePost").value = "";
   });
 
   // Evento para cerrar sesión
-  containerWall.querySelector('#logout').addEventListener('click', () => {
+  containerWall.querySelector("#logout").addEventListener("click", () => {
     logOut();
   });
   return containerWall;
 };
-
-//const searchPost = containerWall.getElementById('inputSearch');
-//searchPost.addEventListener('keyup', () => {
- // const searchValue = searchPost.value;
- // containerWall.innerHTML = '';
-  
-//})
