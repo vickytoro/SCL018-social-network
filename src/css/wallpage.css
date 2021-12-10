@@ -17,7 +17,7 @@
   border-bottom: 2px solid rgba(0, 0, 0, 0.425);
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
   align-items: center;
-  position: sticky;
+  justify-content: space-between;
 }
 
 .inside-header {
@@ -29,23 +29,26 @@
 
 .wall-logo {
   display: flex;
-  margin-left: 20%;
-  margin-right: 60%;
-  width: 50%;
+  width: 25.62vw;
   height: auto;
+  position: relative;
+  margin-left: 20%;
 }
 
 .user-wall {
   display: flex;
-  height: 40%;
-  width: 90%;
   align-items: center;
+  margin-right: 10%;
 }
 
 .img-user {
   margin: 5px;
   width: 5.49vw;
   height: auto;
+}
+
+.user-wall-p {
+  font-size: 1em;
 }
 
 /*Contenedor grid para aside y section de post*/
@@ -66,6 +69,8 @@
 
 .plus {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: row;
   border-radius: 5px;
   margin-top: 20px;
@@ -75,6 +80,8 @@
 
 .home {
   display: flex;
+  justify-content: flex-start;
+  align-items: center;
   flex-direction: row;
   border-radius: 5px;
   margin-top: 20px;
@@ -82,6 +89,8 @@
 }
 
 .button-logout {
+  justify-content: flex-start;
+  align-items: center;
   width: 60%;
   padding: 5px;
   display: flex;
@@ -105,19 +114,19 @@
 }
 
 .img-home {
-  width: 25%;
-  height: auto;
+  width: 41.5px;
+  height: 41.5px;
   margin: 5px;
 }
 
 .img-plus {
-  width: 25%;
-  height: auto;
+  width: 41.5px;
+  height: 41.5px;
 }
 
 .img-logout {
-  width: 20%;
-  height: auto;
+  width: 41.5px;
+  height: 41.5px;
 }
 
 /*adicional en aside*/
@@ -156,7 +165,7 @@
 .tittle-post,
 .tittle-post2 {
   padding: 7px;
-  font-size: 13px;
+  font-size: 0.85em;
   border: none;
   border-bottom: 2px solid #8075cac5;
   border-top-left-radius: 10px;
@@ -168,7 +177,7 @@
 .review-post,
 .review-post2 {
   padding: 5px;
-  font-size: 13px;
+  font-size: 0.85em;
   border: none;
   height: 32vh;
   resize: none;
@@ -181,12 +190,19 @@
   align-items: center;
   display: flex;
   flex-direction: row;
+  justify-content: space-between;
+}
+
+.edit-post {
+  display: flex;
+  padding-right: 0;
+  justify-content: flex-end;
+  align-items: center;
 }
 
 .btn-like {
   width: 8%;
   height: auto;
-  margin-right: 70%;
   margin-left: 1%;
   margin-top: 2px;
   display: flex;
@@ -195,7 +211,7 @@
 }
 
 .like-post {
-  width: 65%;
+  width: 57%;
   height: auto;
 }
 
@@ -206,7 +222,7 @@
 }
 
 .image-post {
-  width: 79%;
+  width: 68%;
   height: auto;
 }
 
@@ -217,18 +233,17 @@
 }
 
 .pencil-post {
-  width: 75%;
+  width: 67%;
   height: auto;
 }
 
 .btn-trash {
   width: 30%;
   height: auto;
-  margin-right: 0%;
 }
 
 .trash-post {
-  width: 62%;
+  width: 56%;
   height: auto;
 }
 
@@ -286,6 +301,7 @@
   border-radius: 5px;
   margin-top: 10px;
   float: right;
+  text-align: center;
 }
 
 .btn-post:hover {
@@ -300,7 +316,7 @@
   cursor: pointer;
   border-radius: 5px;
   box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-  margin-left: 27px;
+  margin-right: 5px;
 }
 
 .btn-save:hover {

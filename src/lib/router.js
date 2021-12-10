@@ -1,7 +1,8 @@
+/* eslint-disable import/named */
+
 import { loginTemplate } from '../templates/login.js';
 import { registerTemplate } from '../templates/register.js';
 import { wallTemplate } from '../templates/wallpage.js';
-
 
 export const router = (hash) => {
   const rootBox = document.getElementById('root');
@@ -16,5 +17,5 @@ export const router = (hash) => {
     rootBox.appendChild(wallTemplate());
   } else if (hash === '#/showpost') {
     rootBox.appendChild(wallTemplate());
-}
-}
+  }
+};

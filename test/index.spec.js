@@ -1,8 +1,8 @@
 // importamos la funcion que vamos a testear
-import { signUp } from '../src/lib/index';
+import { printPosts } from '../src/templates/showpost.js';
 
 describe('myFunction', () => {
   it('debería ser una función', () => {
-    expect(typeof signUp).toBe('function');
+    expect(typeof printPosts).toBe('function');
   });
 });

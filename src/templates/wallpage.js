@@ -1,21 +1,23 @@
-import { logOut, addPost, auth } from "../lib/index.js";
+/* eslint-disable no-alert */
+import {
+  logOut, addPost, auth, readPost,
+} from '../lib/index.js';
 
-//Función para desplegar #wallpage
+// Función para desplegar #wallpage
 export const wallTemplate = () => {
-  console.log(auth.currentUser);
-  const email = auth?.currentUser?.email;
-  const containerWall = document.createElement("section");
-  containerWall.className = "wall-section";
-  containerWall.id = "wall-section";
+   const email = auth?.currentUser?.email;
+  const containerWall = document.createElement('section');
+  containerWall.className = 'wall-section';
+  containerWall.id = 'wall-section';
   const wallPost = `
   <header class="header-wall">
     <figure class="inside-header">
       <img class="wall-logo" src="./imagenes/Degustando.png" />
+      </figure>
       <div class="user-wall">
         <img class="img-user" src="./imagenes/icons8usuarix.png" />
-        <p>${email || "hola"} </p>  
+        <p class="user-wall-p" >${email || 'Bienvenide a nuestra página'}</p>  
       </div>
-    </figure>
   </header>
   <main class="main-wall">
     <aside class="aside-box">
@@ -47,7 +49,7 @@ export const wallTemplate = () => {
             <textarea type="text" id="titlePost" class="tittle-post" placeholder="Escribe un Título, por ejemplo: Receta, Reseña de Restaurante, etc."></textarea>
             <textarea type="text" id="writePost" class="review-post" placeholder="Escribe tu reseña o receta. En el caso de reseña por favor indicanos la ubicación y precios refereciales."></textarea>
           <div class="buttons">
-            <button class="btn-image2"> <img class="image-post2" src="./imagenes/icons8imagen.png" />Subir imagen</button> 
+            <button id="btnImagePost" class="btn-image2"> <img class="image-post2" src="./imagenes/icons8imagen.png" />Subir imagen</button> 
           </div> 
           </div>
           <button id="toPost" class="btn-post">Publicar</button>
@@ -59,35 +61,42 @@ export const wallTemplate = () => {
   </main>
     `;
   containerWall.innerHTML = wallPost;
-
   // Evento para abrir y cerrar modal para escribir Posts
-  const postBox = containerWall.querySelector("#postModal");
-  postBox.style.display = "none";
-  containerWall.querySelector("#newPost").addEventListener("click", () => {
-    postBox.style.display = "block";
-    const closeModal = containerWall.querySelector("#closeModal");
-    closeModal.addEventListener("click", () => {
-      postBox.style.display = "none";
+  const postBox = containerWall.querySelector('#postModal');
+  postBox.style.display = 'none';
+  containerWall.querySelector('#newPost').addEventListener('click', () => {
+    postBox.style.display = 'block';
+    const closeModal = containerWall.querySelector('#closeModal');
+    closeModal.addEventListener('click', () => {
+      postBox.style.display = 'none';
     });
   });
 
   // Evento para escribir post
-  const newTitle = containerWall.querySelector("#toPost");
-  newTitle.addEventListener("click", () => {
-    const inputTitle = document.getElementById("titlePost").value;
-    const inputReview = document.getElementById("writePost").value;
-    if (inputTitle && inputReview === "") {
-      alert("Complete los campos vacios");
+  const newTitle = containerWall.querySelector('#toPost');
+  newTitle.addEventListener('click', () => {
+    const inputTitle = document.getElementById('titlePost').value;
+    const inputReview = document.getElementById('writePost').value;
+    if (inputTitle === '' || inputReview === '') {
+      alert('Complete los campos vacios');
     } else {
       addPost(inputTitle, inputReview);
     }
-    document.getElementById("titlePost").value = "";
-    document.getElementById("writePost").value = "";
+    document.getElementById('titlePost').value = '';
+    document.getElementById('writePost').value = '';
   });
 
   // Evento para cerrar sesión
-  containerWall.querySelector("#logout").addEventListener("click", () => {
+  containerWall.querySelector('#logout').addEventListener('click', () => {
     logOut();
   });
+
+  // Llamando funcion de leer data para imprimirla
+  readPost();
+
+containerWall.querySelector('#btnImagePost').addEventListener('click', ()=>{
+  alert('En mantenimiento, estamos trabajando para usted :)')
+})
+
   return containerWall;
 };
