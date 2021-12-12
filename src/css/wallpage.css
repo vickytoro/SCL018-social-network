@@ -1,0 +1,346 @@
+/*Página de Wallpage*/
+
+/*Contenedor para aplicar Grid*/
+.wall-section {
+  width: 100vw;
+  height: 100vh;
+  display: grid;
+  grid-template-rows: 22% 78%;
+  grid-template-columns: 100%;
+}
+
+/*Encabezado o Header*/
+.header-wall {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+  border-bottom: 2px solid rgba(0, 0, 0, 0.425);
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  align-items: center;
+  justify-content: space-between;
+}
+
+.inside-header {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 5px;
+}
+
+.wall-logo {
+  display: flex;
+  width: 25.62vw;
+  height: auto;
+  position: relative;
+  margin-left: 20%;
+}
+
+.user-wall {
+  display: flex;
+  align-items: center;
+  margin-right: 10%;
+}
+
+.img-user {
+  margin: 5px;
+  width: 5.49vw;
+  height: auto;
+}
+
+.user-wall-p {
+  font-size: 1em;
+}
+
+/*Contenedor grid para aside y section de post*/
+.main-wall {
+  display: grid;
+  grid-template-columns: 25% 75%;
+}
+
+/*Contenedor de Aside (cerrar sesion, buscar y agregar reseña*/
+.aside-box {
+  border-right: 2px solid rgba(0, 0, 0, 0.425);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  text-align: center;
+}
+
+.plus {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 5px;
+  margin-top: 20px;
+  padding: 5px;
+  width: 60%;
+}
+
+.home {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  flex-direction: row;
+  border-radius: 5px;
+  margin-top: 20px;
+  width: 60%;
+}
+
+.button-logout {
+  justify-content: flex-start;
+  align-items: center;
+  width: 60%;
+  padding: 5px;
+  display: flex;
+  flex-direction: row;
+  border-radius: 5px;
+  margin-top: 20px;
+}
+
+.plus:hover,
+.button-logout:hover,
+.home:hover {
+  background-color: rgba(128, 128, 128, 0.267);
+}
+
+.button-plus,
+.btn-logout,
+.btn-home {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  font-size: 15px;
+}
+
+.img-home {
+  width: 41.5px;
+  height: 41.5px;
+  margin: 5px;
+}
+
+.img-plus {
+  width: 41.5px;
+  height: 41.5px;
+}
+
+.img-logout {
+  width: 41.5px;
+  height: 41.5px;
+}
+
+/*adicional en aside*/
+.remember {
+  margin-top: 30px;
+}
+
+.like-aside {
+  width: 18%;
+  height: auto;
+}
+
+.korean-food {
+  width: 70%;
+  height: auto;
+}
+
+/*Modal para publicar y posts (Página de showpost)*/
+.post-modal {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+  width: 65%;
+  height: 50%;
+  margin-left: 15%;
+  position: relative;
+}
+
+.post-buttons {
+  border: 2px solid #8075cac5;
+  display: flex;
+  flex-direction: column;
+  border-radius: 10px;
+}
+
+.tittle-post,
+.tittle-post2 {
+  padding: 7px;
+  font-size: 0.85em;
+  border: none;
+  border-bottom: 2px solid #8075cac5;
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
+  resize: none;
+  margin-top: 5px;
+}
+
+.review-post,
+.review-post2 {
+  padding: 5px;
+  font-size: 0.85em;
+  border: none;
+  height: 32vh;
+  resize: none;
+}
+
+.buttons {
+  border-top: 2px solid #8075cac5;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+}
+
+.edit-post {
+  display: flex;
+  padding-right: 0;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.btn-like {
+  width: 8%;
+  height: auto;
+  margin-left: 1%;
+  margin-top: 2px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.like-post {
+  width: 57%;
+  height: auto;
+}
+
+.btn-image {
+  width: 27%;
+  height: auto;
+  margin-right: 0%;
+}
+
+.image-post {
+  width: 68%;
+  height: auto;
+}
+
+.btn-pencil {
+  width: 25%;
+  height: auto;
+  margin-right: 0%;
+}
+
+.pencil-post {
+  width: 67%;
+  height: auto;
+}
+
+.btn-trash {
+  width: 30%;
+  height: auto;
+}
+
+.trash-post {
+  width: 56%;
+  height: auto;
+}
+
+.btn-like,
+.btn-image,
+.btn-image2,
+.btn-pencil,
+.btn-trash {
+  border: none;
+  background-color: white;
+  border-radius: 10px;
+  padding: 3px;
+  cursor: pointer;
+}
+
+.like-post:hover,
+.image-post:hover,
+.pencil-post:hover,
+.trash-post:hover {
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+}
+
+.user-post {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+
+.img-user2 {
+  width: 2.56vw;
+  height: 5.6vh;
+  margin-right: 5px;
+}
+
+.btn-image2 {
+  display: flex;
+  flex-direction: row;
+  margin-left: 5px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+}
+
+.image-post2 {
+  width: 20%;
+  height: auto;
+  margin-right: 3px;
+}
+
+.btn-post {
+  background-color: #8175ca;
+  width: 7.32vw;
+  height: 5.6vh;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin-top: 10px;
+  float: right;
+  text-align: center;
+}
+
+.btn-post:hover {
+  background-color: #4a3d9c;
+}
+
+.btn-save {
+  display: none;
+  background-color: #8175ca;
+  margin-bottom: 7px;
+  margin-top: 4px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  margin-right: 5px;
+}
+
+.btn-save:hover {
+  background-color: #4a3d9c;
+}
+
+.close-modal {
+  display: flex;
+  position: absolute;
+  align-self: flex-end;
+  font-size: 25px;
+  padding: 5px;
+  cursor: pointer;
+  text-align: center;
+}
+
+.close-modal:hover {
+  color: grey;
+}
+
+.section-container-post {
+  overflow-y: auto;
+}
+
+.aside-phone {
+  display: none;
+}

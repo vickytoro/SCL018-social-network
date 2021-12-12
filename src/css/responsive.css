@@ -1,0 +1,473 @@
+/*Responsive para tablets*/
+/*Página de login*/
+@media screen and (max-width: 770px) {
+  /* Section de logo + bienvenida */
+  .login-logo {
+    width: 40.27vw;
+    height: auto;
+  }
+
+  .login-text {
+    font-size: 15px;
+  }
+
+  /* Section de Sign Up */
+  .login-inputMail,
+  .login-inputPassword {
+    width: 300px;
+  }
+
+  .email-user,
+  .password-user {
+    font-size: 10px;
+  }
+
+  .img-input {
+    width: 20px;
+    height: 20px;
+  }
+
+  .terms {
+    font-size: 12px;
+  }
+
+  .terms-singin {
+    font-size: 12px;
+  }
+
+  .button-login {
+    margin-left: 230px;
+    font-size: 0.6em;
+  }
+
+  .link-newAccount {
+    font-size: 12px;
+  }
+
+  .login-width {
+    font-size: 12px;
+  }
+
+  .img-gf {
+    width: 53px;
+    height: 53px;
+  }
+
+  .authors {
+    font-size: 11px;
+  }
+
+  /*Página de Registrate*/
+  .img-logo-register {
+    width: 390px;
+    height: auto;
+  }
+
+  .title-register {
+    font-size: 18px;
+  }
+
+  .email-box,
+  .password-box {
+    font-size: 12px;
+  }
+
+  .button-log {
+    width: 43%;
+    font-size: 13px;
+  }
+
+  .signinOptionText {
+    font-size: 13px;
+  }
+
+  .link-session {
+    font-size: 13px;
+  }
+
+  .conditionsText {
+    font-size: 11px;
+  }
+
+  /*Página de Wallpage*/
+  .wall-logo {
+    width: 34.62vw;
+  }
+
+  .user-wall-p {
+    font-size: 0.8em;
+  }
+
+  /*Aside (cerrar sesion, buscar y agregar reseña*/
+  .hidden {
+    font-size: 13px;
+  }
+
+  .img-home,
+  .img-plus,
+  .img-logout {
+    width: 32.5px;
+    height: 32.5px;
+  }
+
+  .remember {
+    font-size: 0.75em;
+  }
+
+  .korean-food {
+    width: 80%;
+  }
+
+  /*Modal para publicar y posts (Página de showpost)*/
+  .img-user2 {
+    width: 3.56vw;
+    height: 4.6vh;
+  }
+
+  .img-user2-p {
+    font-size: 14px;
+  }
+
+  .tittle-post,
+  .tittle-post2 {
+    font-size: 0.75em;
+  }
+
+  .review-post,
+  .review-post2 {
+    font-size: 0.75em;
+    height: 30vh;
+  }
+
+  .btn-like {
+    width: 14%;
+  }
+
+  .btn-image {
+    width: 22%;
+  }
+
+  .btn-pencil {
+    width: 20%;
+  }
+
+  .btn-trash {
+    width: 25%;
+  }
+
+  ::placeholder {
+    margin-right: 5px;
+  }
+
+  .btn-post {
+    width: 9.32vw;
+    height: 4.6vh;
+    font-size: 11px;
+  }
+
+  .btn-image2 {
+    font-size: 12px;
+  }
+
+  .image-post2 {
+    width: 15%;
+  }
+
+  .btn-save {
+    font-size: 11px;
+    margin-top: 5px;
+  }
+}
+
+/*Responsive para celular*/
+/*Página de login*/
+@media screen and (max-width: 360px) {
+  body {
+    margin: 0;
+    overflow-x: hidden;
+  }
+
+  .section-login {
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 40% 60%;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .section-img {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    align-items: center;
+  }
+
+  .login-logo {
+    width: 80%;
+    height: auto;
+    margin-top: 60px;
+    margin-bottom: 0;
+  }
+
+  .login-text {
+    font-size: 12px;
+  }
+
+  .section-form {
+    background-color: white;
+    margin-top: -10px;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+  }
+
+  .login-formContainer {
+    margin-top: 0px;
+  }
+
+  .login-inputMail,
+  .login-inputPassword {
+    margin-bottom: 10px;
+    background-color: white;
+    width: 85%;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    margin-left: 25px;
+  }
+
+  .img-input {
+    width: 6%;
+    height: auto;
+  }
+
+  .email-user,
+  .password-user {
+    font-size: 12px;
+    text-align: center;
+  }
+
+  .terms,
+  .link-recover {
+    font-size: 10px;
+  }
+
+  .terms-singin {
+    font-size: 10px;
+  }
+
+  .button-login {
+    width: 20%;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    font-size: 11px;
+    margin-right: 50px;
+  }
+
+  .link-recover,
+  .link-newAccount {
+    font-size: 11px;
+  }
+
+  .lines {
+    width: 80%;
+  }
+
+  .login-width {
+    font-size: 12px;
+  }
+
+  .login-newAccount {
+    width: 100%;
+  }
+
+  .welcome-two {
+    display: none;
+  }
+
+  .kimbap {
+    display: none;
+  }
+
+  footer {
+    display: none;
+  }
+
+  /*Página de Register*/
+  .register-form {
+    grid-template-columns: 85%;
+  }
+
+  .img-logo-register {
+    width: 100%;
+    height: auto;
+  }
+
+  .title-register {
+    font-size: 1.4em;
+    margin-top: 30px;
+  }
+
+  .email-box,
+  .password-box {
+    font-size: 11px;
+  }
+
+  .signinOptionText,
+  .link-session {
+    font-size: 14px;
+  }
+
+  .conditionsText {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-right: 10px;
+    margin-top: 30px;
+  }
+
+  .button-log {
+    margin-top: 20px;
+    margin-bottom: 5px;
+  }
+
+  /*Página de Wallpage*/
+  .wall-section {
+    grid-template-rows: 14% 70%;
+    font-size: 11px;
+  }
+
+  .main-wall {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+
+  /*Header*/
+  .inside-header {
+    justify-content: center;
+  }
+
+  .wall-logo {
+    width: 70%;
+    height: auto;
+    margin-top: 3%;
+    margin-left: 0%;
+  }
+
+  .user-wall {
+    display: none;
+  }
+
+  /*Aside*/
+  .aside-box {
+    display: flex;
+    flex-direction: row;
+    border-right: none;
+    background-color: #c4c4c4f5;
+    position: absolute;
+    height: 20%;
+    width: 100%;
+    bottom: -5%;
+    z-index: 10;
+  }
+
+  .home,
+  .plus {
+    margin-top: -70px;
+  }
+
+  .button-logout {
+    margin-top: -70px;
+    margin-left: 30px;
+  }
+
+  .home {
+    margin-left: 70px;
+    margin-right: 40px;
+  }
+
+  .img-user {
+    width: 6.49vw;
+    height: auto;
+  }
+
+  .img-home {
+    width: 85%;
+    height: auto;
+  }
+
+  .img-plus {
+    width: 85%;
+    height: auto;
+  }
+
+  .img-logout {
+    width: 75%;
+    height: auto;
+  }
+
+  .plus:hover,
+  .button-logout:hover,
+  .home:hover {
+    background-color: rgba(128, 128, 128, 0);
+  }
+
+  .button-plus,
+  .btn-logout,
+  .btn-home {
+    display: none;
+  }
+
+  .remember,
+  .like-aside,
+  .korean-food {
+    display: none;
+  }
+
+  .hidden {
+    display: none;
+  }
+
+  /*Responsive modal post*/
+
+  .review-post,
+  .review-post2 {
+    height: 30vh;
+  }
+
+  .img-user2 {
+    width: 5vw;
+    height: 3vh;
+  }
+
+  .btn-like {
+    width: 34px;
+    margin-right: 43%;
+  }
+
+  .edit-post {
+    flex-wrap: wrap;
+  }
+
+  .btn-image {
+    width: 27px;
+    margin-top: 3px;
+  }
+
+  .btn-pencil {
+    width: 25px;
+  }
+
+  .btn-trash {
+    width: 31px;
+    margin-bottom: 2px;
+    margin-left: 0%;
+  }
+
+  .btn-save {
+    font-size: 0.8em;
+  }
+
+  .btn-post {
+    width: 55px;
+    height: 25px;
+  }
+}
