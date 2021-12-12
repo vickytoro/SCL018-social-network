@@ -6,8 +6,8 @@ import {
 
 // Función para imprimir posts
 export const printPosts = (array) => {
-  const containerEmpty = document.querySelector("#containerPosts");
-  containerEmpty.innerHTML = "";
+  const containerEmpty = document.querySelector('#containerPosts');
+  containerEmpty.innerHTML = '';
   const viewPost = (element) => {
     const boxEmpty = `
       <div id="postModal" class="post-modal">

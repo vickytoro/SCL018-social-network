@@ -1,10 +1,11 @@
-import { singIn, loginWithGoogle, loginWithFacebook } from "../lib/index.js";
+
+import { singIn, loginWithGoogle, loginWithFacebook } from '../lib/index.js';
 
 // Función para desplegar #login
 export const loginTemplate = () => {
-  const containerLogin = document.createElement("main");
-  containerLogin.className = "section-login";
-  containerLogin.id = "section-login";
+  const containerLogin = document.createElement('main');
+  containerLogin.className = 'section-login';
+  containerLogin.id = 'section-login';
   const loginPage = `
       <section class="section-img">
         <figure class="figure-login-logo"  >

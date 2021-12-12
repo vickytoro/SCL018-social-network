@@ -87,7 +87,7 @@ export const wallTemplate = () => {
   });
 
   // Evento para cerrar sesión
-  containerWall.querySelector("#logout").addEventListener("click", () => {
+  containerWall.querySelector('#logout').addEventListener('click', () => {
     logOut();
   });
 

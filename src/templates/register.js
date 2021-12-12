@@ -1,10 +1,11 @@
-import { signUp } from "../lib/index.js";
+
+import { signUp } from '../lib/index.js';
 
 // Función para desplegar #register
 export const registerTemplate = () => {
-  const formRegister = document.createElement("section");
-  formRegister.className = "register-form";
-  formRegister.id = "registerForm";
+  const formRegister = document.createElement('section');
+  formRegister.className = 'register-form';
+  formRegister.id = 'registerForm';
   const formTemplate = `
         <header class="logo-register">
           <img class="img-logo-register" src="./imagenes/Degustando.png">

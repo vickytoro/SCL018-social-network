@@ -9,7 +9,8 @@
 
 // Funciones de Firebase
 
-import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
+
+import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
 
 import {
   getAuth,
@@ -40,20 +41,22 @@ import {
   arrayUnion,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
-import { printPosts } from "../templates/showpost.js";
+
+import { printPosts } from '../templates/showpost.js';
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
-  apiKey: "AIzaSyDYyH8zVc2dzwShjluk9PjRrBa66YgShA8",
-  authDomain: "degustando-corea-scl018.firebaseapp.com",
-  projectId: "degustando-corea-scl018",
-  storageBucket: "degustando-corea-scl018.appspot.com",
-  messagingSenderId: "682892671357",
-  appId: "1:682892671357:web:94d0b1f49391667b16f414",
-  measurementId: "G-BXYTTYRJVX",
+  apiKey: 'AIzaSyDYyH8zVc2dzwShjluk9PjRrBa66YgShA8',
+  authDomain: 'degustando-corea-scl018.firebaseapp.com',
+  projectId: 'degustando-corea-scl018',
+  storageBucket: 'degustando-corea-scl018.appspot.com',
+  messagingSenderId: '682892671357',
+  appId: '1:682892671357:web:94d0b1f49391667b16f414',
+  measurementId: 'G-BXYTTYRJVX',
 };
 
 // Initialize Firebase
@@ -83,7 +86,7 @@ export const signUp = (email, password, name) => {
       console.log(errorCode);
       const errorMessage = error.message;
       console.log(errorMessage);
-      alert("Correo ya registrado");
+      alert('Correo ya registrado');
       // ..
     });
 
@@ -109,12 +112,12 @@ export const singIn = (emailRegister, passwordRegister) => {
       const user = userCredential.user;
       console.log(user);
       // ...
-      window.location.hash = "#/wallpage";
+      window.location.hash = '#/wallpage';
     })
     .catch((error) => {
       const errorCode = error.code;
       console.log(errorCode);
-      alert("Correo o contraseña inválidos");
+      alert('Correo o contraseña inválidos');
       const errorMessage = error.message;
       console.log(errorMessage);
     });
@@ -164,8 +167,8 @@ export const loginWithFacebook = () => {
       console.log(accessToken);
 
       // ...
-      console.log("Inicio de sesión con Facebook");
-      window.location.hash = "#/wallpage";
+      console.log('Inicio de sesión con Facebook');
+      window.location.hash = '#/wallpage';
     })
     .catch((error) => {
       // Handle Errors here.
@@ -212,7 +215,7 @@ export const onAuth = () => {
         window.location.hash = '#/login';
       }
       // User is signed out
-      console.log("auth: sign out");
+      console.log('auth: sign out');
     }
   });
 };
@@ -232,14 +235,14 @@ export const addPost = async (inputTitle, inputReview) => {
     likes: [],
     likesCounter: 0,
   });
-  console.log("Document written with ID: ", docRef.id);
+  console.log('Document written with ID: ', docRef.id);
 
   return docRef;
 };
 
 // Leer datos de post
 export const readPost = () => {
-  const q = query(collection(db, "posts"), orderBy("datepost", "desc"));
+  const q = query(collection(db, 'posts'), orderBy('datepost', 'desc'));
   onSnapshot(q, (querySnapshot) => {
     const boxPost = [];
     querySnapshot.forEach((doc) => {
@@ -251,7 +254,7 @@ export const readPost = () => {
       });
     });
     printPosts(boxPost);
-    console.log("title", "description", boxPost.join(", "));
+    console.log('title', 'description', boxPost.join(', '));
     return boxPost;
   });
 };
@@ -264,7 +267,7 @@ export const deletePost = async (id) => {
 
 // Editar datos
 export const editPost = async (id, inputTitle, inputReview) => {
-  const refreshPost = doc(db, "posts", id);
+  const refreshPost = doc(db, 'posts', id);
   await updateDoc(refreshPost, {
     title: inputTitle,
     description: inputReview,
@@ -273,7 +276,7 @@ export const editPost = async (id, inputTitle, inputReview) => {
 
 // Dar likes y contador de likes
 export const likePost = async (id, userLike) => {
-  const likeRef = doc(db, "posts", id);
+  const likeRef = doc(db, 'posts', id);
   const docSnap = await getDoc(likeRef);
   const postData = docSnap.data();
   const likesCount = postData.likesCounter;
