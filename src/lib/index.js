@@ -9,6 +9,7 @@
 
 // Funciones de Firebase
 
+
 import { initializeApp } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js';
 
 import {
@@ -40,7 +41,9 @@ import {
   arrayUnion,
 } from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
+
 import { printPosts } from '../templates/showpost.js';
+
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries

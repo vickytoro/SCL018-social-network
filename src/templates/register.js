@@ -1,3 +1,4 @@
+
 import { signUp } from '../lib/index.js';
 
 // Función para desplegar #register
