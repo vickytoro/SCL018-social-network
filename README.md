@@ -64,4 +64,4 @@ En cuanto al diseño, hicimos pocos cambios, eliminando, modificando y agregando
 
 Les dejamos el enlace para nuestra página web.
 
-[Degustando Corea]()
+[Degustando Corea](https://macarenarivera.github.io/SCL018-social-network/src/#/login)
