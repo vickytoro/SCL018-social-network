@@ -1,4 +1,13 @@
-//Funciones de Firebase
+/* eslint-disable no-use-before-define */
+/* eslint-disable no-shadow */
+/* eslint-disable object-shorthand */
+/* eslint-disable import/no-cycle */
+/* eslint-disable import/no-unresolved */
+/* eslint-disable no-alert */
+/* eslint-disable no-unused-vars */
+/* eslint-disable no-console */
+
+// Funciones de Firebase
 
 import { initializeApp } from "https://www.gstatic.com/firebasejs/9.3.0/firebase-app.js";
 
@@ -13,7 +22,8 @@ import {
   sendEmailVerification,
   onAuthStateChanged,
   updateProfile,
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js";
+
+} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-auth.js';
 
 import {
   collection,
@@ -28,13 +38,12 @@ import {
   getDoc,
   arrayRemove,
   arrayUnion,
-} from "https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js";
+} from 'https://www.gstatic.com/firebasejs/9.3.0/firebase-firestore.js';
 
 import { printPosts } from "../templates/showpost.js";
 
 // TODO: Add SDKs for Firebase products that you want to use
 // https://firebase.google.com/docs/web/setup#available-libraries
-
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
 const firebaseConfig = {
@@ -59,14 +68,15 @@ export const user = auth.currentUser;
 export const signUp = (email, password, name) => {
   createUserWithEmailAndPassword(auth, email, password)
     .then((userCredential) => {
-      emailCheck();
       const user = userCredential.user;
       console.log(user);
       updateProfile(auth.currentUser, {
         displayName: name,
+        userEmail: email,
       });
-      alert("Usuario Registrado");
-      window.location.hash = "#/login";
+      alert('Usuario Registrado');
+      window.location.hash = '#/login';
+      emailCheck();
     })
     .catch((error) => {
       const errorCode = error.code;
@@ -82,8 +92,8 @@ export const signUp = (email, password, name) => {
     sendEmailVerification(auth.currentUser)
       .then(() => {
         // Email verification sent!
-        console.log("Correo enviado");
-        alert("Hemos enviado un correo de verificación para validar tu cuenta");
+        console.log('Correo enviado');
+        alert('Hemos enviado un correo de verificación para validar tu cuenta');
       })
       .catch((error) => {
         console.log(error);
@@ -113,7 +123,6 @@ export const singIn = (emailRegister, passwordRegister) => {
 // Iniciar sesión con Google
 export const loginWithGoogle = () => {
   signInWithPopup(auth, provider)
-    // getRedirectResult(auth)
     .then((result) => {
       // This gives you a Google Access Token. You can use it to access Google APIs.
       const credential = GoogleAuthProvider.credentialFromResult(result);
@@ -122,8 +131,8 @@ export const loginWithGoogle = () => {
       // The signed-in user info.
       const user = result.user;
       console.log(user);
-      console.log("Inicio de sesión con Google");
-      window.location.hash = "#/wallpage";
+      console.log('Inicio de sesión con Google');
+      window.location.hash = '#/wallpage';
     })
     .catch((error) => {
       // Handle Errors here.
@@ -178,8 +187,8 @@ export const logOut = () => {
   signOut(auth)
     .then(() => {
       // Sign-out successful.
-      console.log("cierre de sesión exitoso");
-      window.location.hash = "#/login";
+      console.log('cierre de sesión exitoso');
+      window.location.hash = '#/login';
     })
     .catch((error) => {
       console.log(error);
@@ -190,15 +199,17 @@ export const logOut = () => {
 // Función observador que nos sirve para autenticar al usuario y que pueda realizar post, etc.
 export const onAuth = () => {
   onAuthStateChanged(auth, (user) => {
-    if (user) {
+    if (user != null && user.emailVerified === true) {
       // User is signed in, see docs for a list of available properties
       // https://firebase.google.com/docs/reference/js/firebase.User
       const uid = user.uid;
-      window.location.hash = "#/wallpage";
-      console.log("auth:sing in");
+      const emailUser = user.email;
+      const emailVerified = user.emailVerified;
+      window.location.hash = '#/wallpage';
+      console.log('auth:sing in');
     } else {
-      if (!window.location.hash.includes("register")) {
-        window.location.hash = "#/login";
+      if (!window.location.hash.includes('register')) {
+        window.location.hash = '#/login';
       }
       // User is signed out
       console.log("auth: sign out");
@@ -211,7 +222,7 @@ export const onAuth = () => {
 // Agregar datos de post
 export const addPost = async (inputTitle, inputReview) => {
   // Add a new document with a generated id.
-  const docRef = await addDoc(collection(db, "posts"), {
+  const docRef = await addDoc(collection(db, 'posts'), {
     userId: auth.currentUser.uid,
     name: auth.currentUser.displayName,
     email: auth.currentUser.email,
@@ -245,15 +256,13 @@ export const readPost = () => {
   });
 };
 
-readPost();
-
-//Borrar datos
+// Borrar datos
 export const deletePost = async (id) => {
-  await deleteDoc(doc(db, "posts", id));
+  await deleteDoc(doc(db, 'posts', id));
   console.log(await deleteDoc);
 };
 
-//Editar datos
+// Editar datos
 export const editPost = async (id, inputTitle, inputReview) => {
   const refreshPost = doc(db, "posts", id);
   await updateDoc(refreshPost, {
@@ -262,7 +271,7 @@ export const editPost = async (id, inputTitle, inputReview) => {
   });
 };
 
-//Dar likes y contador de likes
+// Dar likes y contador de likes
 export const likePost = async (id, userLike) => {
   const likeRef = doc(db, "posts", id);
   const docSnap = await getDoc(likeRef);

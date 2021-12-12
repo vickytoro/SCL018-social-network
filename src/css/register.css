@@ -76,6 +76,7 @@
   margin-top: 7px;
   text-decoration: none;
   color: black;
+  cursor: pointer;
 }
 
 .link-session:hover {
@@ -84,4 +85,6 @@
 
 .conditionsText {
   font-size: 13px;
+  margin-right: 10px;
+  margin-left: 10px;
 }

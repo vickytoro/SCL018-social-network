@@ -1,175 +1,183 @@
 /*Página de login*/
 
-*{
-    box-sizing: border-box;
-    font-family: 'ABeeZee', sans-serif;  
+* {
+  box-sizing: border-box;
+  font-family: "ABeeZee", sans-serif;
 }
 
-body{
-    margin: 0;
-    padding: 0;
-    overflow-x: hidden;
+body {
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
 }
 
 /* Contenedor de Grid */
 
-.section-login{
-    display: grid;
-    grid-template-columns: 50% 50%;
-    grid-template-rows: 95% 5%;
+.section-login {
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-rows: 95% 5%;
+  width: 100vw;
+  height: 100vh;
 }
 
 /* Section de logo + bienvenida */
 
-.section-img{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    margin-left: 25px;
-    margin-right: 25px;
-    text-align: center;
+.section-img {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin-left: 25px;
+  margin-right: 25px;
+  text-align: center;
 }
 
-.login-logo{
-    margin-top: 20px;
-    margin-bottom: 15px;  
+.figure-login-logo {
+  display: flex;
+  width: 100%;
+  height: auto;
+  justify-content: center;
 }
 
-.login-text{
-    font-size: 18px;    
+.login-logo {
+  margin-top: 20px;
+  margin-bottom: 15px;
+  width: 29.28vw;
+  height: auto;
 }
 
-.kimbap{
-    width: 55%;
+.login-text {
+  font-size: 18px;
+}
+
+.kimbap {
+  width: 55%;
 }
 
 /* Section de Sign Up */
 
-.section-form{
-    background-color: #c4c4c4ad;
-    display: flex;
-    flex-direction: column;  
-    align-items: center;
-    justify-content: start;  
+.section-form {
+  background-color: #c4c4c4ad;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: start;
 }
 
-.login-formContainer{
-    margin-top: 100px;
+.login-formContainer {
+  margin-top: 100px;
 }
 
-.login-inputMail, 
-.login-inputPassword{
-    display: flex;
-    flex-direction: row;
-    margin-bottom: 20px;
-    background-color: white;
+.login-user {
+  justify-content: center;
 }
 
-.img-input{
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-top: 5px;
-    margin-bottom: 5px;
-    filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
+.login-inputMail,
+.login-inputPassword {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  margin-bottom: 20px;
+  background-color: white;
+  width: 360px;
+}
+
+.img-input {
+  margin-left: 10px;
+  margin-right: 10px;
+  margin-top: 5px;
+  margin-bottom: 5px;
+  filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.25));
 }
 
 .email-user,
-.password-user{
-    border: none;
-    text-align: center;
-    width: 150%;
+.password-user {
+  border: none;
+  text-align: center;
+  width: 150%;
 }
 
-.terms,
-.link-recover{
-    font-size: 15px;
+.terms {
+  font-size: 15px;
 }
 
-.terms-singin{
-    font-size: 14px;
+.terms-singin {
+  font-size: 14px;
 }
 
-.button-login{
-    background-color: #f8cd83;
-    border: none;
-    width: 30%;
-    margin-left: 250px;
-    margin-bottom: 10px;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
-    
+.button-login {
+  background-color: #f8cd83;
+  border: none;
+  width: 7.97vw;
+  margin-left: 250px;
+  margin-bottom: 10px;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  cursor: pointer;
+  border-radius: 5px;
+  box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  font-size: 0.8em;
 }
 
-.button-login:hover{
-    background-color: #f1a728;
-    transition: 0.5s;
+.button-login:hover {
+  background-color: #f1a728;
+  transition: 0.5s;
 }
 
-.recover-password,
-.login-newAccount{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-around;
-    align-items: center;
+.login-newAccount {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
 }
 
-.link-newAccount{
-    text-decoration: none;
-    color: black;
-    font-size: 15px;    
+.link-newAccount {
+  text-decoration: none;
+  color: black;
+  font-size: 15px;
 }
 
-.link-newAccount:hover{
-    color: #dd8c01;
+.link-newAccount:hover {
+  color: #dd8c01;
 }
 
-.lines{
-    width: 100%;
-    border: 0.1px solid rgba(0, 0, 0, 0.37);
+.lines {
+  width: 100%;
+  border: 0.1px solid rgba(0, 0, 0, 0.37);
 }
 
-.login-width{
-    font-size: 15px;
+.login-width {
+  font-size: 15px;
 }
 
-.login-googleFacebook, 
-.login-newAccount{
-    width: 55%;
-   text-align: center;
+.login-googleFacebook,
+.login-newAccount {
+  width: 55%;
+  text-align: center;
 }
 
 .button-google,
-.button-facebook{
-    border: none;
-    background-color: rgba(255, 255, 255, 0);
-    cursor: pointer;
+.button-facebook {
+  border: none;
+  background-color: rgba(255, 255, 255, 0);
+  cursor: pointer;
 }
 
-.button-google:hover, 
-.button-facebook:hover{
-    background-color: rgba(255, 255, 255, 0.445);
-    border-radius: 10px;
+.button-google:hover,
+.button-facebook:hover {
+  background-color: rgba(255, 255, 255, 0.445);
+  border-radius: 10px;
 }
 
-.authors{
-    font-size: 14px;
+.authors {
+  font-size: 14px;
 }
 
-footer{
-    background-color: #c4c4c4cc;
-    text-align: center;
-    grid-column: 1/3;
-    position: relative;
-    z-index: 10;      
+footer {
+  background-color: #c4c4c4cc;
+  text-align: center;
+  grid-column: 1/3;
+  position: relative;
+  z-index: 10;
 }
-
-
-
-
-
-
-
