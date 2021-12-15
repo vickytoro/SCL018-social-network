@@ -16,8 +16,8 @@ export const printPosts = (array) => {
         <p class="img-user2-p">${element.data.name}</p>
       </div>
       <div class="post-buttons">
-      <textarea id="titlePost" class="tittle-post2" readonly> ${element.data.title} </textarea>
-      <textarea id="writePost" class="review-post2" readonly> ${element.data.description} </textarea>
+      <textarea id="titlePost-${element.id}" class="tittle-post2" readonly> ${element.data.title} </textarea>
+      <textarea id="writePost-${element.id}" class="review-post2" readonly> ${element.data.description} </textarea>
       <div class="buttons">
         <button class="btn-like" value='${element.id}'><img class="like-post" src="./imagenes/like.png" />${element.data.likesCounter}</button>
         `;
@@ -60,8 +60,9 @@ export const printPosts = (array) => {
   const updatePost = containerEmpty.querySelectorAll('.btn-pencil');
   updatePost.forEach((element) => {
     element.addEventListener('click', () => {
-      const editDocTitle = containerEmpty.querySelector('.tittle-post2');
-      const editDocReview = containerEmpty.querySelector('.review-post2');
+      const valueButton = element.value;
+      const editDocTitle = containerEmpty.querySelector(`#titlePost-${valueButton}`);
+      const editDocReview = containerEmpty.querySelector(`#writePost-${valueButton}`);
       editDocTitle.removeAttribute('readonly');
       editDocReview.removeAttribute('readonly');
       const saveValue = containerEmpty.querySelector(
